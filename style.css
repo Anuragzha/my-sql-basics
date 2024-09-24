@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -6,6 +7,7 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Header styling */
 header {
     background: #35424a;
     color: #ffffff;
@@ -13,13 +15,14 @@ header {
     text-align: center;
 }
 
+/* Navigation styling */
 nav ul {
     list-style: none;
     padding: 0;
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin: 0 10px;
 }
 
@@ -28,6 +31,7 @@ nav a {
     text-decoration: none;
 }
 
+/* Heading styling */
 h1 {
     margin: 0;
 }
@@ -36,25 +40,30 @@ h2, h3 {
     color: #35424a;
 }
 
+/* Main content styling */
 main {
     padding: 20px;
-    max-width: 800px;
+    max-width: 100%; /* Set to 100% width for better mobile view */
     margin: auto;
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Section styling */
 section {
     margin-bottom: 20px;
 }
 
+/* Code block styling */
 pre {
     background: #eaeaea;
     padding: 10px;
     border-radius: 4px;
+    overflow-x: auto;
 }
 
+/* Footer styling */
 footer {
     text-align: center;
     padding: 10px;
@@ -63,4 +72,21 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    nav ul {
+        padding: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
 }
