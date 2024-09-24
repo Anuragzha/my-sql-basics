@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Basics</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>MySQL Basics</h1>
+        <nav>
+            <ul>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#commands">Basic Commands</a></li>
+                <li><a href="#tables">Creating Tables</a></li>
+                <li><a href="#data">Data Manipulation</a></li>
+                <li><a href="#querying">Querying Data</a></li>
+                <li><a href="#joins">Joins</a></li>
+                <li><a href="#constraints">Constraints</a></li>
+                <li><a href="#indexes">Indexes</a></li>
+                <li><a href="#backup">Backup and Restore</a></li>
+                <li><a href="#admin">Basic Administration</a></li>
+                <li><a href="#keys">Primary and Foreign Keys</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="installation">
+            <h2>1. Installation and Setup</h2>
+            <ul>
+                <li><strong>Download MySQL:</strong> You can download MySQL from the official <a href="https://dev.mysql.com/downloads/">MySQL website</a>.</li>
+                <li><strong>Installation:</strong> Follow the installation instructions for your operating system.</li>
+                <li><strong>Start MySQL Server:</strong> Use commands or a GUI tool (like MySQL Workbench) to start the server.</li>
+            </ul>
+        </section>
+        <section id="commands">
+            <h2>2. Basic Commands</h2>
+            <pre>
+                <code>
+                    mysql -u username -p
+                    CREATE DATABASE database_name;
+                    USE database_name;
+                    SHOW DATABASES;
+                    DROP DATABASE database_name;
+                </code>
+            </pre>
+        </section>
+        <section id="tables">
+            <h2>3. Creating Tables</h2>
+            <pre>
+                <code>
+                    CREATE TABLE table_name (
+                        column1 datatype constraints,
+                        column2 datatype constraints
+                    );
+                    CREATE TABLE users (
+                        user_id INT PRIMARY KEY,
+                        username VARCHAR(50) NOT NULL,
+                        email VARCHAR(100) UNIQUE
+                    );
+                </code>
+            </pre>
+        </section>
+        <section id="data">
+            <h2>4. Data Manipulation</h2>
+            <pre>
+                <code>
+                    INSERT INTO table_name (column1, column2) VALUES (value1, value2);
+                    SELECT * FROM table_name;
+                    UPDATE table_name SET column1 = value1 WHERE condition;
+                    DELETE FROM table_name WHERE condition;
+                </code>
+            </pre>
+        </section>
+        <section id="querying">
+            <h2>5. Querying Data</h2>
+            <pre>
+                <code>
+                    SELECT * FROM table_name WHERE condition;
+                    SELECT * FROM table_name ORDER BY column ASC|DESC;
+                    SELECT * FROM table_name LIMIT number;
+                </code>
+            </pre>
+        </section>
+        <section id="joins">
+            <h2>6. Joins</h2>
+            <pre>
+                <code>
+                    SELECT * FROM table1 INNER JOIN table2 ON table1.id = table2.foreign_id;
+                    SELECT * FROM table1 LEFT JOIN table2 ON table1.id = table2.foreign_id;
+                    SELECT * FROM table1 RIGHT JOIN table2 ON table1.id = table2.foreign_id;
+                </code>
+            </pre>
+        </section>
+        <section id="constraints">
+            <h2>7. Constraints</h2>
+            <ul>
+                <li><strong>Primary Key:</strong> Uniquely identifies each record in a table.</li>
+                <li><strong>Foreign Key:</strong> Links records between two tables.</li>
+                <li><strong>Unique:</strong> Ensures all values in a column are unique.</li>
+                <li><strong>Not Null:</strong> Ensures a column cannot have a NULL value.</li>
+            </ul>
+        </section>
+        <section id="keys">
+            <h2>8. Primary and Foreign Keys</h2>
+            <h3>Primary Key</h3>
+            <p>A primary key is a unique identifier for a record in a table. It ensures that no two rows have the same value in that column and cannot be NULL.</p>
+            <pre>
+                <code>
+                    CREATE TABLE users (
+                        user_id INT PRIMARY KEY,
+                        username VARCHAR(50) NOT NULL,
+                        email VARCHAR(100) UNIQUE
+                    );
+                </code>
+            </pre>
+            <h3>Foreign Key</h3>
+            <p>A foreign key is a field (or collection of fields) in one table that refers to the primary key in another table. This creates a relationship between the two tables.</p>
+            <pre>
+                <code>
+                    CREATE TABLE orders (
+                        order_id INT PRIMARY KEY,
+                        order_date DATE,
+                        user_id INT,
+                        FOREIGN KEY (user_id) REFERENCES users(user_id)
+                    );
+                </code>
+            </pre>
+            <p>In this example, <code>user_id</code> in the <code>orders</code> table is a foreign key that links to the <code>user_id</code> in the <code>users</code> table.</p>
+        </section>
+        <section id="indexes">
+            <h2>9. Indexes</h2>
+            <pre>
+                <code>
+                    CREATE INDEX index_name ON table_name (column1);
+                    DROP INDEX index_name ON table_name;
+                </code>
+            </pre>
+        </section>
+        <section id="backup">
+            <h2>10. Backup and Restore</h2>
+            <pre>
+                <code>
+                    mysqldump -u username -p database_name > backup.sql;
+                    mysql -u username -p database_name < backup.sql;
+                </code>
+            </pre>
+        </section>
+        <section id="admin">
+            <h2>11. Basic Administration Commands</h2>
+            <pre>
+                <code>
+                    SHOW TABLES;
+                    DESCRIBE table_name;
+                    DROP TABLE table_name;
+                </code>
+            </pre>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 MySQL Basics. All rights reserved.</p>
+    </footer>
+</body>
+</html>
 
